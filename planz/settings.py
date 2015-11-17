@@ -9,7 +9,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
-GRAPPELLI_ADMIN_TITLE= 'Plan de Medios Z'
+GRAPPELLI_ADMIN_TITLE= 'Planeador de Medios'
 
 ADMINS = (
     ('Thrive.mx', 'z@thrive.mx'),
@@ -112,4 +112,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'planz/static'),
 )
 
-
+URL_LOGIN = '/login/'

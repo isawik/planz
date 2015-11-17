@@ -1,37 +1,51 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Planeador de Medias</title>
-	<link rel="stylesheet" href="{% static 'dist/bootstrap/css/bootstrap.min.css' %}" >
-</head>
-<body>
-	{% if emisoras %}
-			{% for e in emisoras %}
-				<p> {{ e.nombre }} </p>
 
-			{% endfor %}
-		{% else %}
+{% extends 'base.html' %}
+{%block content %}
+	<div class="container">
+		<div class="col-md-4">
+			<div class="clientes"> 
+				<span>Clientes:</span>
+				<p>
+					{% if cliente %}
+						{% for cliente in cliente %}
+							<p><a href="/cliente/{{cliente.id}}/">{{cliente.nombre}}</a></p>
+						{% endfor %}
+					{% else %}
+						<p>No hay datos</p>
+					{% endif %}
+				</p>			
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="Campañas"> 
+				<span>Campañas:</span>
+				<p>
+					{% if camp %}
+						{% for camp in camp %}
+							<p><a href="/camp/{{camp.id}}/">{{camp.nombre}}</a></p>
+						{% endfor %}
+					{% else %}
+							<p>No hay datos</p>
+					{% endif %}
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="resumen">
+				<span>Presupuesto Radio:</span>
+				<p>
+					{% if anuncios %}
+						{% for anuncios in anuncios %}
+							<p><a href="/resumenradio/{{anuncios.id}}/">{{anuncios.nombre}} {{anuncios.emisora.nombre}} {{anuncios.emisora.frecuencia}} {{anuncios.emisora.banda.nombre}} de grupo {{anuncios.emisora.grupo.nombre}}</a>
+							</p>
+						{% endfor %}
+					{% else %}
+							<p>No hay datos</p>
+					{% endif %}
+					
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
 
-			<p>No hay datos</p>
-
-		{% endif %}
-
-	{% if anuncios %}
-			{% for e in anuncios %}
-				<p> {{ e.nombre }} </p>
-
-			{% endfor %}
-		{% else %}
-
-			<p>No hay datos</p>
-
-		{% endif %}
-
-		{{emisoras.rating + anuncios.dias}}
-
-	<script src="{% static 'dist/jquery/jquery-1.11.3.min.js' %}"></script>
-	<script src="{% static 'dist/bootstrap/js/bootstrap.min.js' %}"></script>
-</body>
-</html>

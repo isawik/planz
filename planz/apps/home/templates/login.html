@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Planeador de Medios</title>
+	<link rel="stylesheet" href="{% static 'dist/bootstrap/css/bootstrap.min.css' %}" >
+	<link rel="stylesheet" href="{% static 'dist/css/login.css' %}" >
+
+</head>
+<body>
+{% block content %}
+	<div class="container">
+		<form action="." method="POST" class="form-signin">
+			<div class="title">
+				<h2 class="form-signin-heading">Planeador de Medios</h2>
+				<span>Identificate</span>
+			</div>
+			{% csrf_token %}
+			<div class="el">{{ mensaje }}</div>
+			<div class="input">
+				<input type="text" name="username" value="" id="username" class="form-control" placeholder="Usuario">
+				<input type="password" name="password" value="" id="password" class="form-control" placeholder="Contraseña">
+			</div>
+			{% if next %}
+				<input type="hidden" value="{{next}}" name="next">
+			{% else %}
+				<input type="hidden" value="/" name="next">
+			{% endif %}
+			<button class="btn btn-lg btn-primary btn-block" type="submit"> Entrar </button>
+		</form>
+	</div>
+{% endblock %}
+	<script src="{% static 'dist/jquery/jquery-1.11.3.min.js' %}"></script>
+	<script src="{% static 'dist/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

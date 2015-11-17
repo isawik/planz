@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%block content %}
+	<div class="container">
+		<h2> {{ camprad.nombre }}</h2>
+		<h3> Producto:</h3>
+
+		{% for gru in gru %}
+			<ul>
+				<li>{{gru.nombre}}</li> 
+				{%for camp in camp %}
+					{{camp.nombre}}
+				{% endfor %}
+
+			</ul>
+		{% endfor %}
+		<a class="btn btn-primary" href="javascript:window.history.go(-1);"> Regresar a la Lista </a>
+	</div>
+{% endblock %}

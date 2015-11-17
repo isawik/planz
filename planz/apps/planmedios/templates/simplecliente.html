@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{%block content %}
+	<div class="container">
+		<h2> {{ cliente.nombre }}</h2>
+		<h3> Producto:</h3>
+		{% for prodcli in prodcli %}
+			<ul>
+				<li>{{prodcli.nombre}}</li>
+			</ul>
+		{% endfor %}
+		<a class="btn btn-primary" href="javascript:window.history.go(-1);"> Regresar a la Lista </a>
+	</div>
+{% endblock %}

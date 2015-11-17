@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('planz.apps.planmedios.urls')),
+    url(r'^', include('planz.apps.home.urls')),
 
 ]
